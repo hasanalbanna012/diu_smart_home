@@ -102,7 +102,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
                         ),
                         child: const Text(
 
-"Edit Profile",
+                           "Edit Profile",
                           style: TextStyle(fontSize: 12),
                         ),
                       ),
