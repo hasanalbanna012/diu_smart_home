@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:smart_home_flutter_ui/constants/app_colors.dart';
 import 'package:smart_home_flutter_ui/screen/smart_home_screen.dart';
 
@@ -18,6 +19,9 @@ class _LoginScreenState extends State<LoginScreen>
   late Animation<double> _fadeAnimation;
   late Animation<Offset> _slideAnimation;
 
+  bool _isLoading = false;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+
   @override
   void initState() {
     super.initState();
@@ -26,21 +30,16 @@ class _LoginScreenState extends State<LoginScreen>
       duration: const Duration(milliseconds: 1500),
     );
 
-    _fadeAnimation = Tween<double>(
-      begin: 0.0,
-      end: 1.0,
-    ).animate(CurvedAnimation(
-      parent: _animationController,
-      curve: Curves.easeIn,
-    ));
+    _fadeAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
+      CurvedAnimation(parent: _animationController, curve: Curves.easeIn),
+    );
 
     _slideAnimation = Tween<Offset>(
       begin: const Offset(0, 0.5),
       end: Offset.zero,
-    ).animate(CurvedAnimation(
-      parent: _animationController,
-      curve: Curves.easeOut,
-    ));
+    ).animate(
+      CurvedAnimation(parent: _animationController, curve: Curves.easeOut),
+    );
 
     _animationController.forward();
   }
@@ -53,13 +52,37 @@ class _LoginScreenState extends State<LoginScreen>
     super.dispose();
   }
 
-  void _handleLogin() {
+  Future<void> _handleLogin() async {
     if (_formKey.currentState!.validate()) {
-      // Add your authentication logic here
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => const SmartHomeScreen()),
-      );
+      setState(() => _isLoading = true);
+
+      try {
+        final UserCredential userCredential = await _auth.signInWithEmailAndPassword(
+          email: _emailController.text.trim(),
+          password: _passwordController.text.trim(),
+        );
+
+        if (userCredential.user != null) {
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (context) => const SmartHomeScreen()),
+          );
+        }
+      } on FirebaseAuthException catch (e) {
+        String message = 'Login failed';
+        if (e.code == 'user-not-found') {
+          message = 'No user found for that email.';
+        } else if (e.code == 'wrong-password') {
+          message = 'Wrong password provided.';
+        }
+
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text(message),
+          backgroundColor: Colors.red,
+        ));
+      } finally {
+        setState(() => _isLoading = false);
+      }
     }
   }
 
@@ -71,10 +94,7 @@ class _LoginScreenState extends State<LoginScreen>
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-            colors: [
-              AppColor.fgColor,
-              AppColor.fg1Color,
-            ],
+            colors: [AppColor.fgColor, AppColor.fg1Color],
           ),
         ),
         child: SafeArea(
@@ -141,8 +161,8 @@ class _LoginScreenState extends State<LoginScreen>
                                 ),
                                 enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(12),
-                                  borderSide: const BorderSide(
-                                      color: AppColor.fg1Color),
+                                  borderSide:
+                                      const BorderSide(color: AppColor.fg1Color),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(12),
@@ -170,8 +190,8 @@ class _LoginScreenState extends State<LoginScreen>
                                 ),
                                 enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(12),
-                                  borderSide: const BorderSide(
-                                      color: AppColor.fg1Color),
+                                  borderSide:
+                                      const BorderSide(color: AppColor.fg1Color),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(12),
@@ -191,7 +211,7 @@ class _LoginScreenState extends State<LoginScreen>
                               width: double.infinity,
                               height: 50,
                               child: ElevatedButton(
-                                onPressed: _handleLogin,
+                                onPressed: _isLoading ? null : _handleLogin,
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: AppColor.fgColor,
                                   shape: RoundedRectangleBorder(
@@ -199,14 +219,19 @@ class _LoginScreenState extends State<LoginScreen>
                                   ),
                                   elevation: 3,
                                 ),
-                                child: const Text(
-                                  'Login',
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                    color: AppColor.white,
-                                  ),
-                                ),
+                                child: _isLoading
+                                    ? const CircularProgressIndicator(
+                                        valueColor: AlwaysStoppedAnimation<Color>(
+                                            Colors.white),
+                                      )
+                                    : const Text(
+                                        'Login',
+                                        style: TextStyle(
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.bold,
+                                          color: AppColor.white,
+                                        ),
+                                      ),
                               ),
                             ),
                           ],

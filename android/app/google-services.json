@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1032373936101",
+    "project_id": "smart-home-assistant-d3c46",
+    "storage_bucket": "smart-home-assistant-d3c46.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1032373936101:android:89b531fa9bd47c5a59190c",
+        "android_client_info": {
+          "package_name": "com.example.diu_smart_home"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAU97MOqVrRqqpkfDqleN5iCcK4fgkeHz0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
