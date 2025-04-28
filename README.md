@@ -1,4 +1,4 @@
-#  **Smart Home Assistance** #
+#  **Smart Home Assistance** 
 
 Smart home systems are increasingly becoming an essential part of modern living, offering automation and
 control of home appliances. However, many existing systems are either too expensive or too complex for the
