@@ -5,7 +5,7 @@ control of home appliances. However, many existing systems are either too expens
 average user. This project aims to develop a simple, affordable, and user-friendly smart home control system
 using mobile applications to control basic appliances like lights and fans.
 
-#ScreenShots:
+# ScreenShots:
 
 ![Screenshot 2025-04-28 165459](https://github.com/user-attachments/assets/f2f496ee-5def-423a-8d67-17f3e3fd0dab)
 ![Screenshot 2025-04-28 165442](https://github.com/user-attachments/assets/90aada9e-31f4-4ba3-97a9-bc1e9a3a0252)
