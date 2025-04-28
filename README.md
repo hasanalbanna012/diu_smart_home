@@ -14,7 +14,12 @@ ScreenShots:
 ![488455800_1213680817083076_3654446972472615131_n](https://github.com/user-attachments/assets/211bdcc3-fb08-4a0d-8183-a07747244f42)
 
 
-A few resources to get you started if this is your first Flutter project:
+Demo video:
+https://github.com/user-attachments/assets/bd32b0f5-12fb-437a-a4bd-d9364a8f09df
+
+Project Report: 
+[Smart-Home-Assistance (1).pptx](https://github.com/user-attachments/files/19938693/Smart-Home-Assistance.1.pptx)
+
 
 - [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
 - [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
