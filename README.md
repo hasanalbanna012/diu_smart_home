@@ -7,11 +7,14 @@ using mobile applications to control basic appliances like lights and fans.
 
 ScreenShots:
 
-![482841853_4078306015824759_7271274331617865557_n](https://github.com/user-attachments/assets/9a6a816e-9928-45dd-bcce-c503e4cc59df)
-![488835480_2135397100254801_2459014977804824423_n](https://github.com/user-attachments/assets/1ae71a97-07e1-470a-9853-76f5788bd652)
-![491024562_1459504715034812_2357412293403416553_n](https://github.com/user-attachments/assets/0a82571c-5d94-47f6-98fb-eb1edaa31dbf)
-![489247787_1224202255958139_5042941458042402057_n](https://github.com/user-attachments/assets/b5b3d910-0abf-4324-86d5-d63c45b61f28)
-![488455800_1213680817083076_3654446972472615131_n](https://github.com/user-attachments/assets/211bdcc3-fb08-4a0d-8183-a07747244f42)
+![Screenshot 2025-04-28 165459](https://github.com/user-attachments/assets/f2f496ee-5def-423a-8d67-17f3e3fd0dab)
+![Screenshot 2025-04-28 165442](https://github.com/user-attachments/assets/90aada9e-31f4-4ba3-97a9-bc1e9a3a0252)
+![Screenshot 2025-04-28 165620](https://github.com/user-attachments/assets/7e84b75d-993f-441d-a617-79de6eacf771)
+![Screenshot 2025-04-28 165610](https://github.com/user-attachments/assets/86a8dc8d-0712-4ac5-a395-450e8498b478)
+![Screenshot 2025-04-28 165557](https://github.com/user-attachments/assets/43847d5a-c46a-4d85-9aaf-f2f58c01eceb)
+![Screenshot 2025-04-28 165537](https://github.com/user-attachments/assets/db20a01e-0a95-4c72-97c1-783ef1ee1696)
+![Screenshot 2025-04-28 165513](https://github.com/user-attachments/assets/a85f572f-c9bb-4308-a702-1e3c1f497442)
+
 
 
 Demo video:
